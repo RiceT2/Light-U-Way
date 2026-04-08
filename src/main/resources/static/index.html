@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>小呦行</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #0f172a; color: #fff; }
+        .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
+        .panel { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+        .chip { border: none; border-radius: 20px; padding: 10px 16px; background: #38bdf8; color: #082f49; cursor: pointer; font-weight: 600; }
+        .chip:hover { transform: translateY(-1px); }
+        .hint { color: #cbd5e1; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>小呦行 · AI旅游小助手</h1>
+    <div class="panel">
+        <h2 id="welcome">Hello，你想去哪儿玩？</h2>
+        <p class="hint">少文字输入，全点击操作。先选目的地，再选出发时间。</p>
+        <div class="chips" id="destinations"></div>
+    </div>
+    <div class="panel" id="result">
+        <strong>状态：</strong>等待选择目的地。
+    </div>
+</div>
+<script>
+    fetch('/api/bootstrap').then(function (r) { return r.json(); }).then(function (d) {
+        document.getElementById('welcome').textContent = d.welcome;
+        var container = document.getElementById('destinations');
+        d.quickDestinations.forEach(function (city) {
+            var btn = document.createElement('button');
+            btn.className = 'chip';
+            btn.innerText = city;
+            btn.onclick = function () {
+                document.getElementById('result').innerHTML = '<strong>状态：</strong>已选择目的地「' + city + '」，下一步请选择出发时间（Picker）。';
+            };
+            container.appendChild(btn);
+        });
+    });
+</script>
+</body>
+</html>
