@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   mysql:
     image: mysql:8.0
@@ -11,22 +9,22 @@ services:
       MYSQL_USER: xiaoyou
       MYSQL_PASSWORD: xiaoyou1234
     ports:
-      - "3306:3306"
+      - "3308:3306"
     command: ["--default-authentication-plugin=mysql_native_password"]
     volumes:
       - mysql_data:/var/lib/mysql
 
   redis:
-    image: redis:7-alpine
+    image: redis:latest
     container_name: xiaoyouxing-redis
     restart: unless-stopped
     ports:
-      - "6379:6379"
+      - "6380:6379"
     volumes:
       - redis_data:/data
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+    image: elasticsearch:8.13.4
     container_name: xiaoyouxing-es
     restart: unless-stopped
     environment:
@@ -40,7 +38,7 @@ services:
       - es_data:/usr/share/elasticsearch/data
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.13.4
+    image: kibana:8.13.4
     container_name: xiaoyouxing-kibana
     restart: unless-stopped
     environment:

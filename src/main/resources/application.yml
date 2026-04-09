@@ -5,12 +5,13 @@ spring:
   application:
     name: xiaoyouxing
   datasource:
-    url: jdbc:mysql://localhost:3306/xiaoyouxing?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://Localhost:3308/xiaoyouxing?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: xiaoyou
     password: xiaoyou1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: localhost
-    port: 6379
+    port: 6380
   elasticsearch:
-    uris: http://localhost:9200
+    rest:
+      uris: http://localhost:9200

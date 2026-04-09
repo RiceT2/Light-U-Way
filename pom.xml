@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>xiaoyouxing</name>
-    <description>小呦行 AI 旅游小助手（Java 8 / Spring Boot）</description>
+    <description>小呦行 AI 旅游小助手</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -48,8 +48,9 @@
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
