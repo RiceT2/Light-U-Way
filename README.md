@@ -1,14 +1,14 @@
-# 小呦行（XiaoYouXing）— Java 25 AI 旅游小助手
+# 小呦行（XiaoYouXing）— Java 17 AI 旅游小助手
 
 本次调整完成：
-- Java 版本升级到 **25**。
+- Java 版本调整为 **17**（兼容你的本地环境）。
 - 前端保持“**点击优先**”交互：目的地点击 → 时间点击 → 一键生成行程。
 - 后端底层结构参考 `Szh0595/TravelAssistant`：引入 `BaseAgent/ReActAgent/ToolCallAgent`、`tools`、`rag`、`app` 分层。
 
 ---
 
 ## 1. 技术栈
-- Java 25
+- Java 17
 - Spring Boot 3.4.5
 - Spring AI（模型与 ES 向量存储 starter）
 - MySQL / Redis / Elasticsearch
